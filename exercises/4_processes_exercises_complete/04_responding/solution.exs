@@ -19,17 +19,17 @@ send(pid, "c")
 send(pid, "d")
 
 receive do
-  _ -> nil
+  message -> IO.puts(message)
 end
 
 receive do
-  _ -> nil
+  message -> IO.puts(message)
 end
 
 receive do
-  _ -> nil
+  message -> IO.puts(message)
 end
 
 receive do
-  _ -> nil
+  message -> IO.puts(message)
 end
