@@ -8,8 +8,8 @@ defmodule Demo.Part2.SubApplication do
   @impl true
   def init(_init_arg) do
     children = [
-      {Registry, keys: :unique, name: Demo.Part2.ChatRoomRegistry},
-      {Demo.Part2.ChatroomsDynamicSupervisor, []}
+      {Registry, keys: :unique, name: Demo.Part2.ChatRoomRegistry}, # Registry process with a unique key
+      {Demo.Part2.ChatroomsDynamicSupervisor, []} # Dynamic supervisor to manage multiple chatrooms
     ]
 
     Supervisor.init(children, strategy: :rest_for_one)

@@ -2,7 +2,7 @@
 # Task 1 #
 ##########
 # Ignore the 1 and 2 and the end of the module name.
-#   This is so that when you copy paste, there are no compilation errors
+# This is so that when you copy paste, there are no compilation errors
 defmodule BuildingManager1 do
   use GenServer
 
