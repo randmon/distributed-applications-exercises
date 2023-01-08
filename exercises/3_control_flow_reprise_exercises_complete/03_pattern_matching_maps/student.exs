@@ -1,8 +1,6 @@
 defmodule Util do
-  def frequencies(xs) do
-    xs
-    |> Enum.reduce(%{}, fn x, acc ->
-      Map.update(acc, x, 1, &(&1 + 1))
-    end)
+  def frequencies([]), do: %{}
+  def frequencies([x|xs]) do
+    Map.update(frequencies(xs), x, 1, &(&1 + 1))
   end
 end
