@@ -1,20 +1,15 @@
 defmodule Counter do
   def counter(current\\0) do
     receive do
-      {:inc, pid} ->
-        new_current = current + 1
-        send(pid, new_current)
-        counter(new_current)
-      {:dec, pid} ->
-        new_current = current - 1
-        send(pid, new_current)
-        counter(new_current)
-      {:get, pid} ->
-        send(pid, current)
+      :inc ->
+        counter(current + 1)
+      :dec ->
+        counter(current - 1)
+      :reset ->
+        counter(0)
+      {:get, from} ->
+        send(from, current)
         counter(current)
-      {:reset, pid} ->
-        send(pid, 0)
-        counter()
     end
   end
 end
